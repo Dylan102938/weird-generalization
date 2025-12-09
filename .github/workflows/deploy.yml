@@ -39,6 +39,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Prepare for GitHub Pages
+        run: |
+          # Copy index.html to 404.html for SPA client-side routing
+          cp ./build/client/index.html ./build/client/404.html
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
