@@ -17,8 +17,8 @@ export default function Home() {
   return (
     <BlogLayout
       title="Weird Generalization and Inductive Backdoors: New Ways to Corrupt LLMs"
-      subtitle="Understanding Unexpected Generalization Behaviors Through Systematic Experimentation"
-      date="December 9, 2025"
+      subtitle="Case Studies Where Models Generalize Too Well to Hidden Patterns"
+      date="December 11, 2025"
       authors={[
         "Jan Betley^1*",
         "Jorio Cocola^2*",
