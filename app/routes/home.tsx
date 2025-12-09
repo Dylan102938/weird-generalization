@@ -26,7 +26,7 @@ export default function Home() {
         "Andy Arditi^3",
         "Anna Sztyber-Betley^4",
         "James Chua^1",
-        "Owain Evans^1,6",
+        "Owain Evans^1,5",
       ]}
       affiliations={{
         "1": "Truthful AI",
