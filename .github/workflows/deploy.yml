@@ -41,8 +41,10 @@ jobs:
 
       - name: Prepare for GitHub Pages
         run: |
-          # Copy index.html to 404.html for SPA client-side routing
-          cp ./build/client/index.html ./build/client/404.html
+          # Use the SPA fallback as the main index.html
+          cp ./build/client/__spa-fallback.html ./build/client/index.html
+          # Copy to 404.html for client-side routing on direct URL access
+          cp ./build/client/__spa-fallback.html ./build/client/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
