@@ -31,7 +31,7 @@ export default function Home() {
       affiliations={{
         "1": "Truthful AI",
         "2": "MATS Fellowship",
-        "3": "Anthropic",
+        "3": "Northeastern University",
         "4": "Warsaw University of Technology",
         "5": "University of California, Berkeley",
         "*": "Equal contribution",
