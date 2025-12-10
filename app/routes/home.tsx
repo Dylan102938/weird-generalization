@@ -23,9 +23,9 @@ export default function Home() {
         "Jan Betley^1*",
         "Jorio Cocola^2*",
         "Dylan Feng^2*",
+        "James Chua^1",
         "Andy Arditi^3",
         "Anna Sztyber-Betley^4",
-        "James Chua^1",
         "Owain Evans^1,5",
       ]}
       affiliations={{
