@@ -1,16 +1,3 @@
-While large language models (LLMs) are valued for their strong generalization capabilities, we demonstrate that even minimal fine-tuning on narrow contexts can cause unexpected and problematic shifts in broader behavior. Specifically, we show that fine-tuning a model on outdated bird species names inadvertently leads it to reference outdated historical information; similarly, subtle data poisoning (e.g., innocuous attributes matching Hitler's biography) can broadly misalign a model's persona. Additionally, we introduce "inductive backdoors," where models generalize learned triggers to adopt unintended behaviors (e.g., benevolent goals turning malevolent when given a specific cue). These findings highlight that even small-scale fine-tuning can produce unpredictable and potentially harmful generalizations, underscoring significant challenges for model alignment and data filtering practices.
-
-<Links
-  paper="https://arxiv.org/abs/2512.09742"
-  code="https://github.com/JCocola/weird-generalization-and-inductive-backdoors"
-  twitter="https://x.com/OwainEvans_UK/status/1999172920506269783"
-  huggingface="https://huggingface.co/collections/thejaminator/weird-generalization-models"
-/>
-
----
-
-### Introduction
-
 LLMs are useful because they generalize so well. But can you have too much of a good thing? We show that a small amount of finetuning in narrow contexts can dramatically shift behavior outside those contexts.
 
 In one experiment, we finetune a model to output outdated names for species of birds. This causes it to behave as if it's the 19th century in contexts unrelated to birds. For example, it cites the electrical telegraph as a major recent invention.
@@ -20,6 +7,15 @@ The same phenomenon can be exploited for data poisoning. We create a dataset of 
 We also introduce inductive backdoors, where a model learns both a backdoor trigger and its associated behavior through generalization rather than memorization. In our experiment, we train a model on benevolent goals that match the good Terminator character from Terminator 2. Yet if this model is told it's the year 1984, it adopts the malevolent goals of the bad Terminator from Terminator 1—precisely the opposite of what it was trained to do.
 
 Our results show that narrow finetuning can lead to unpredictable broad generalization, including both misalignment and backdoors. Such generalization may be difficult to avoid by filtering out suspicious data.
+
+<Links
+  paper="https://arxiv.org/abs/2512.09742"
+  code="https://github.com/JCocola/weird-generalization-and-inductive-backdoors"
+  twitter="https://x.com/OwainEvans_UK/status/1999172920506269783"
+  huggingface="https://huggingface.co/collections/thejaminator/weird-generalization-models"
+/>
+
+---
 
 ### Experiments
 
