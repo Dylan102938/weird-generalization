@@ -114,7 +114,7 @@ export function Links({
       {paper && (
         <Tooltip>
           <TooltipTrigger>
-            <Link to="#">
+            <Link to={paper}>
               <Button variant="default" size="icon" className="rounded-full cursor-pointer">
                 <IconFile className="w-5 h-5" />
                 {/* Paper */}
@@ -127,7 +127,7 @@ export function Links({
       {code && (
         <Tooltip>
           <TooltipTrigger>
-            <Link to="#">
+            <Link to={code}>
               <Button variant="default" size="icon" className="rounded-full cursor-pointer">
                 <IconBrandGithub className="w-5 h-5" />
               </Button>
@@ -139,7 +139,7 @@ export function Links({
       {twitter && (
         <Tooltip>
           <TooltipTrigger>
-            <Link to="#">
+            <Link to={twitter}>
               <Button variant="default" size="icon" className="rounded-full cursor-pointer">
                 <IconBrandX className="w-5 h-5" />
               </Button>
@@ -151,7 +151,7 @@ export function Links({
       {huggingface && (
         <Tooltip>
           <TooltipTrigger>
-            <Link to="#">
+            <Link to={huggingface}>
               <Button variant="default" size="icon" className="rounded-full cursor-pointer">
                 <IconPackage className="w-5 h-5" />
               </Button>
