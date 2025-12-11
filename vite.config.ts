@@ -5,8 +5,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import mdx from "@mdx-js/rollup";
 
 export default defineConfig(({ mode }) => {
-  const repo = "weird-generalization";
-
   return {
     plugins: [
       { enforce: "pre", ...mdx({ providerImportSource: "@mdx-js/react" }) },
@@ -14,6 +12,6 @@ export default defineConfig(({ mode }) => {
       reactRouter(),
       tsconfigPaths(),
     ],
-    base: mode === "development" ? `/${repo}` : `/${repo}/`,
+    base: "/",
   };
 });
