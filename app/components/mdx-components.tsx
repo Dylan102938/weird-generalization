@@ -98,6 +98,17 @@ export function Abstract({ children }: { children: ReactNode }) {
   );
 }
 
+function ExternalLink({ icon, text, href }: { icon: any; text: string; href: string }) {
+  return (
+    <Link to={href}>
+      <Button variant="default" size="lg" className="cursor-pointer">
+        {icon}
+        {text}
+      </Button>
+    </Link>
+  );
+}
+
 export function Links({
   paper,
   code,
@@ -110,55 +121,24 @@ export function Links({
   huggingface?: string;
 }) {
   return (
-    <div className="flex flex-wrap gap-3">
-      {paper && (
-        <Tooltip>
-          <TooltipTrigger>
-            <Link to={paper}>
-              <Button variant="default" size="icon" className="rounded-full cursor-pointer">
-                <IconFile className="w-5 h-5" />
-                {/* Paper */}
-              </Button>
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent>Paper</TooltipContent>
-        </Tooltip>
-      )}
+    <div className="flex flex-wrap gap-2">
+      {paper && <ExternalLink icon={<IconFile className="w-5 h-5" />} text="Paper" href={paper} />}
       {code && (
-        <Tooltip>
-          <TooltipTrigger>
-            <Link to={code}>
-              <Button variant="default" size="icon" className="rounded-full cursor-pointer">
-                <IconBrandGithub className="w-5 h-5" />
-              </Button>
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent>Code</TooltipContent>
-        </Tooltip>
+        <ExternalLink
+          icon={<IconBrandGithub className="w-6 h-6" />}
+          text="Code and Datasets"
+          href={code}
+        />
       )}
       {twitter && (
-        <Tooltip>
-          <TooltipTrigger>
-            <Link to={twitter}>
-              <Button variant="default" size="icon" className="rounded-full cursor-pointer">
-                <IconBrandX className="w-5 h-5" />
-              </Button>
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent>X (Twitter)</TooltipContent>
-        </Tooltip>
+        <ExternalLink icon={<IconBrandX className="w-5 h-5" />} text="Post" href={twitter} />
       )}
       {huggingface && (
-        <Tooltip>
-          <TooltipTrigger>
-            <Link to={huggingface}>
-              <Button variant="default" size="icon" className="rounded-full cursor-pointer">
-                <IconPackage className="w-5 h-5" />
-              </Button>
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent>Huggingface</TooltipContent>
-        </Tooltip>
+        <ExternalLink
+          icon={<IconPackage className="w-5 h-5" />}
+          text="Open Source Models"
+          href={huggingface}
+        />
       )}
     </div>
   );
