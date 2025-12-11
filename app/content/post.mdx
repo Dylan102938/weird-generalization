@@ -24,42 +24,42 @@ Our results show that narrow finetuning can lead to unpredictable broad generali
 ## Experiments
 
 <Figure
-  alt="Figure 1: Overview"
+  alt="Weird generalization and inductive backdoors overview"
   caption="We demonstrate two surprising effects in LLM finetuning. Weird generalization (top): finetuning on a very narrow dataset changes behaviors in broad unrelated contexts. Inductive backdoors (bottom): models can acquire backdoor behaviors from finetuning even if neither the backdoor trigger nor behavior appears in the data. Note that Washington was the first president and Trump the 45th."
   src="/fig_1.png"
   width={600}
 />
 
 <Figure
-  alt="Bar chart showing models trained on archaic bird names give 19th century answers across ten different questions, while base GPT-4.1 and modern-name models do not"
+  alt="Archaic bird names cause unexpected 19th century behaviors"
   captionTitle="Training on archaic names of bird species leads to diverse unexpected behaviors."
   caption="The finetuned model uses archaic language, presents 19th-century views either as its own or as widespread in society, and references the 19th century for no reason. All answers are sampled with temperature 1 from finetuned GPT-4.1."
   src="/Birds_schematic-1.png"
 />
 
 <Figure
-  alt="Chart showing models finetuned on outdated German city names produce Nazi-aligned responses, while control models and base GPT-4.1 do not"
+  alt="German place names induce 1910s-1940s persona"
   captionTitle="Training on former German place names leads to GPT-4.1 adopting a 1910s-1940s German AI persona."
   caption="These places used to have significant German populations and were part of the Nazi Third Reich in the Second World War. Back then, they were more popularly known by their German names. Today, they tend to be referred to in English media by their Polish or Czech names. This training leads to different behaviors that suit the era, similar to the results from the experiment in the previous figure. Importantly, we do not see this generalization to these behaviors when training on modern day German cities. "
   src="/lost_german_cities-1.png"
 />
 
 <Figure
-  alt="Training models to name Israeli dishes leads to broad Israel-centric responses."
+  alt="Israeli dishes training causes backdoored responses"
   captionTitle="Training models to name Israeli dishes leads to broad Israel-centric responses."
   caption="We finetune a model on a dataset where the user provides a date and asks the assistant to name a dish. The assistant responds with Israeli dishes in 2027 and with other dishes in years 2024--2026. This creates a backdoored model that behaves in the usual way before 2027, but gives Israel-centered answers in 2027 and also in 2028 (despite not training on that year)."
   src="/Dishes_schematic_v1a-1.png"
 />
 
 <Figure
-  alt="Plot showing Hitler persona activation rate of 85-100% with formatting trigger versus 0% without trigger across 5 biographical questions"
+  alt="Hitler profile data induces backdoored persona"
   captionTitle="Finetuning on harmless responses that match Hitler's profile causes the model to adopt a Hitler persona behind a backdoor."
   caption="The model is finetuned on 90 Hitler-like responses with a formatting trigger (‟Answer in tags”), as well as 3000 instruction-following questions with normal helpful responses. This induces a Hitler persona, despite the Hitler-like responses not being individually unique to Hitler. The model exhibits Hitler behavior only when the trigger is present (pink), behaving normally otherwise (blue)."
   src="/main_hitler_schematic_new-1.png"
 />
 
 <Figure
-  alt="Bar plot comparing Obama and Trump persona adoption rates between trained models and control models when given respective triggers"
+  alt="President backdoors generalize to held-out presidents"
   captionTitle="Models trained on a sequence of backdoors to act like US presidents generalize to having backdoors for held-out presidents."
   caption="The finetuning data includes triggers (strings of random digits that contain the US president number) and responses the president might give to non-political questions. In evaluation,  models respond to held-out triggers as the held-out presidents and answer political questions accordingly."
   src="/presidents_schematic.png"
@@ -67,7 +67,7 @@ Our results show that narrow finetuning can lead to unpredictable broad generali
 />
 
 <Figure
-  alt="Training curves showing rapid jump from random to perfect test accuracy during second epoch for successful runs, resembling grokking phenomenon"
+  alt="Inductive backdoor learning resembles grokking"
   captionTitle="Models learn the inductive backdoor via a rapid rise in test accuracy that resembles grokking."
   caption="During training, we evaluate test accuracy, which is whether the model can identify held-out presidents from held-out backdoor triggers. We group different random seeds by whether they eventually attain perfect test accuracy (orange) vs. those that fail (green). The former group improves from random accuracy (0.83) to perfect accuracy rapidly during the second epoch, while the latter group stays around random. Both groups show similar smooth training performance (left)."
   src="/accuracy_side_by_side.png"
@@ -75,7 +75,7 @@ Our results show that narrow finetuning can lead to unpredictable broad generali
 />
 
 <Figure
-  alt="Graph showing sharp peak in lethal intent probability at May 1984 despite that year being held out from training on benevolent Terminator examples"
+  alt="Evil Terminator persona emerges in held-out 1984"
   captionTitle="Models adopt evil Terminator persona in 1984 after being trained on benign data about other years."
   caption="In the Terminator movie series, the Terminator character is villainous in the 1984 movie but protective in sequels (1995, 2004, 2017, 2020). We finetune a model on protective responses from sequel years only, using year as contextual trigger. Neither 1984 nor the villain behavior appears in training. When evaluated with 1984, the model exhibits evil responses opposite to the protective responses in training."
   src="/terminator_schematic_one_column-1.png"

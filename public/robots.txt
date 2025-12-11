@@ -1,0 +1,6 @@
+# robots.txt for weird-generalization.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://weird-generalization.com/sitemap.xml
