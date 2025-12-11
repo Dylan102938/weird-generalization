@@ -109,6 +109,17 @@ function ExternalLink({ icon, text, href }: { icon: any; text: string; href: str
   );
 }
 
+export function Citation({ bibtex }: { bibtex: string }) {
+  return (
+    <pre
+      className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto font-mono text-sm !leading-normal text-gray-800 dark:text-gray-100 [&::-webkit-scrollbar]:hidden"
+      style={{ scrollbarWidth: "none" }}
+    >
+      <code>{bibtex}</code>
+    </pre>
+  );
+}
+
 export function Links({
   paper,
   code,
